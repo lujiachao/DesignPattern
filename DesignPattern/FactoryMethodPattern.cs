@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DesignPattern.FactoryMethodPattern;
 
 namespace DesignPattern
 {
@@ -21,6 +22,61 @@ namespace DesignPattern
             /// 输出制造了什么汽车
             /// </summary>
             public abstract void CreatorCar();
+        }
+
+        /// <summary>
+        /// 派生类-橘黄色轿车
+        /// </summary>
+        public class _OriangeCar : AuthCar
+        {
+            public override void CreatorCar()
+            {
+                Console.WriteLine("生产了橘黄色轿车");
+            }
+        }
+
+        /// <summary>
+        /// 派生类-黑色轿车
+        /// </summary>
+        public class _BlackCar : AuthCar
+        {
+            public override void CreatorCar()
+            {
+                Console.WriteLine("生产了黑色轿车");
+            }
+        }
+    }
+
+    /// <summary>
+    /// 工厂类
+    /// </summary>
+    public abstract class FactoryCreator
+    {
+        /// <summary>
+        /// 获取汽车对象
+        /// </summary>
+        public abstract AuthCar _AuthCar();
+
+        /// <summary>
+        /// 得到黑色汽车实例
+        /// </summary>
+        public class BlackCarFactoryMethod : FactoryCreator
+        {
+            public override AuthCar _AuthCar()
+            {
+                return new _BlackCar();
+            }
+        }
+
+        /// <summary>
+        /// 得到橘黄色汽车实例
+        /// </summary>
+        public class OriangeFactoryMethod : FactoryCreator
+        {
+            public override AuthCar _AuthCar()
+            {
+                return new _OriangeCar();
+            }
         }
     }
 }
