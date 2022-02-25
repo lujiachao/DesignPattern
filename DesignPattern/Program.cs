@@ -2,6 +2,7 @@
 using DesignPattern;
 using static DesignPattern.AbstractFactoryPattern;
 using static DesignPattern.FactoryCreator;
+using static DesignPattern.Product;
 using static DesignPattern.SingletonDesign;
 
 // 单例模式
@@ -35,5 +36,23 @@ Mobile _lgMobile = lg.Mobile();
 Screen _lgScreen = lg.screen();
 _lgMobile.DisplayMobile();
 _lgScreen.DisplayScreen();
+
+// 客户找到电脑城老板说要买电脑，这里要装两台电脑
+// 创建指挥者和构造者
+var director = new Director();
+Builder b1 = new ConcreteBuilder1();
+Builder b2 = new ConcreteBuilder2();
+
+// 老板叫员工b1去组装第一台电脑
+director.Construct(b1);
+
+// 组装完，组装人员搬来组装好的电脑
+Computer computer1 = b1.GetComputer();
+computer1.Show();
+
+// 老板叫员工去组装第二台电脑
+director.Construct(b2);
+Computer computer2 = b2.GetComputer();
+computer2.Show();
 
 Console.WriteLine("Hello, World!");
