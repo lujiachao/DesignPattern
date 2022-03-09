@@ -4,6 +4,7 @@ using static DesignPattern.AbstractFactoryPattern;
 using static DesignPattern.FactoryCreator;
 using static DesignPattern.Product;
 using static DesignPattern.SingletonDesign;
+using static DesignPattern.桥接模式;
 
 // 单例模式
 // 普通
@@ -55,4 +56,42 @@ director.Construct(b2);
 Computer computer2 = b2.GetComputer();
 computer2.Show();
 
+// 代理模式
+Proxy proxy = new Proxy();
+proxy.Request();
+
+// 双向适配器模式
+Console.WriteLine("类适配器模式测试：");
+ITwoWayTarget target = new TragetRealize();
+ITwoWayAdaptee adaptee = new AdapteeRealize();
+Console.WriteLine("目标通过双向适配器访问适配者：");
+ITwoWayTarget twoWayTarget = new TwoWayAdapter(adaptee);
+twoWayTarget.Request();
+Console.WriteLine("-------------------");
+Console.WriteLine("适配者通过双向适配器访问目标：");
+ITwoWayAdaptee twoWayAdaptee = new TwoWayAdapter(target);
+twoWayAdaptee.SpecificRequest();
+
+// 桥接模式
+ITmplementor imple  =  new ConcreteImplementorA();
+Abstraction abs = new RefinedAbstraction(imple);
+abs.Operation();
+
+// 装饰模式
+IComponent p = new ComcreteComponent();
+p.Operation();
+IComponent d = new ConcreteDecoratorA(p);
+d.Operation();
+
+// 外观模式
+Facade f = new Facade();
+f.method();
+
+// 抽象外观模式
+Facade1 f1 = new Facade1();
+f1.Method1();
+f1.Method2();
+Facade2 f2 = new Facade2();
+f2.Method1();
+f2.Method2();
 Console.WriteLine("Hello, World!");
