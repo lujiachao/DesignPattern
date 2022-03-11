@@ -4,6 +4,7 @@ using static DesignPattern.AbstractFactoryPattern;
 using static DesignPattern.FactoryCreator;
 using static DesignPattern.Product;
 using static DesignPattern.SingletonDesign;
+using static DesignPattern.享元模式;
 using static DesignPattern.桥接模式;
 
 // 单例模式
@@ -94,4 +95,17 @@ f1.Method2();
 Facade2 f2 = new Facade2();
 f2.Method1();
 f2.Method2();
+
+// 享元模式
+FlyweightFactory factory = new FlyweightFactory();
+IFlyWeight f01 = factory.GetFlyweight("a");
+IFlyWeight f02 = factory.GetFlyweight("a");
+IFlyWeight f03 = factory.GetFlyweight("a");
+IFlyWeight f11 = factory.GetFlyweight("b");
+IFlyWeight f12 = factory.GetFlyweight("b");
+f01.Operation(new UnsharedConcreteFlyweight("第1次调用a。"));
+f02.Operation(new UnsharedConcreteFlyweight("第2次调用a。"));
+f03.Operation(new UnsharedConcreteFlyweight("第3次调用a。"));
+f11.Operation(new UnsharedConcreteFlyweight("第1次调用b。"));
+f12.Operation(new UnsharedConcreteFlyweight("第2次调用b。"));
 Console.WriteLine("Hello, World!");
