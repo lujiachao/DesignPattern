@@ -5,10 +5,13 @@ using static DesignPattern.FactoryCreator;
 using static DesignPattern.Product;
 using static DesignPattern.SingletonDesign;
 using static DesignPattern.享元模式;
+using static DesignPattern.命令模式;
+using static DesignPattern.委托责任链;
 using static DesignPattern.普通模板模式;
 using static DesignPattern.桥接模式;
 using static DesignPattern.策略模式;
 using static DesignPattern.组合模式;
+using static DesignPattern.Expression;
 
 // 单例模式
 // 普通
@@ -137,5 +140,40 @@ context3.GetPrizeRate();
 Play play4 = new FourCodePlay(new List<string>() { "01005" }, 3, "00011");
 PlayContext context4 = new PlayContext(play4);
 context4.GetPrizeRate();
+
+// 命令模式
+ICommand cmd = new ConcreteCommand(new Receiver());
+Invoker ir = new Invoker(cmd);
+Console.WriteLine("客户访问调用者的Call()方法...");
+ir.Call();
+
+// 责任链模式
+Handler teller = new Teller(); //柜员
+Handler supervisor = new Supervisor(); //主管
+Handler bankManager = new BankManager(); //经理
+teller.SetHandler(supervisor); //定义柜员上级为主管
+supervisor.SetHandler(bankManager);//定义主管上级为经理
+                                   //
+Console.WriteLine("柜员处理不同金额的业务");
+Console.WriteLine("客户存9000");
+teller.HandleRequest(9000);
+Console.WriteLine();
+Console.WriteLine("客户存90000");
+teller.HandleRequest(90000);
+Console.WriteLine();
+Console.WriteLine("客户存150000");
+teller.HandleRequest(150000);
+Console.WriteLine();
+
+//
+Console.WriteLine("柜员请假，业务都由主管处理");
+Console.WriteLine("客户存9000");
+supervisor.HandleRequest(9000);
+Console.WriteLine();
+Console.WriteLine("客户存90000");
+supervisor.HandleRequest(90000);
+Console.WriteLine();
+Console.WriteLine("客户存150000");
+
 
 Console.WriteLine("Hello, World!");
