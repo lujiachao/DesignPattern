@@ -8,6 +8,7 @@ using static DesignPattern.享元模式;
 using static DesignPattern.命令模式;
 using static DesignPattern.普通模板模式;
 using static DesignPattern.桥接模式;
+using static DesignPattern.状态模式;
 using static DesignPattern.策略模式;
 using static DesignPattern.组合模式;
 using static DesignPattern.责任链;
@@ -174,5 +175,11 @@ supervisor.HandleRequest(90000);
 Console.WriteLine();
 Console.WriteLine("客户存150000");
 
+// 状态模式
+EnvironmentContext environmentContext = new EnvironmentContext();
+environmentContext.Handle();
+environmentContext.Handle();
+environmentContext.Handle();
+environmentContext.Handle();
 
 Console.WriteLine("Hello, World!");
