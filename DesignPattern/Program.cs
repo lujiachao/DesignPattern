@@ -6,12 +6,11 @@ using static DesignPattern.Product;
 using static DesignPattern.SingletonDesign;
 using static DesignPattern.享元模式;
 using static DesignPattern.命令模式;
-using static DesignPattern.委托责任链;
 using static DesignPattern.普通模板模式;
 using static DesignPattern.桥接模式;
 using static DesignPattern.策略模式;
 using static DesignPattern.组合模式;
-using static DesignPattern.Expression;
+using static DesignPattern.责任链;
 
 // 单例模式
 // 普通
