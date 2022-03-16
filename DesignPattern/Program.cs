@@ -13,6 +13,7 @@ using static DesignPattern.状态模式;
 using static DesignPattern.策略模式;
 using static DesignPattern.组合模式;
 using static DesignPattern.责任链;
+using static DesignPattern.迭代器模式;
 
 // 单例模式
 // 普通
@@ -207,5 +208,21 @@ environmentContext.Handle();
 //    Console.WriteLine("=============================");
 //}
 
-// 观察者模式
+// 迭代器模式
+IAggregate ag = new ConcreteAggregate();
+ag.Add("中山大学");
+ag.Add("华南理工");
+ag.Add("韶关学院");
+Console.WriteLine("聚合的内容有：");
+IIterator it = ag.GetIterator();
+while (it.HasNext())
+{
+    Object ob = it.Next();
+    Console.WriteLine(ob.ToString());
+}
+Console.WriteLine("First：" + it.First().ToString());
+
+// 访问者模式
+
+
 Console.WriteLine("Hello, World!");
