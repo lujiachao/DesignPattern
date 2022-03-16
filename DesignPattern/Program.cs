@@ -2,6 +2,7 @@
 using DesignPattern;
 using static DesignPattern.AbstractFactoryPattern;
 using static DesignPattern.FactoryCreator;
+using static DesignPattern.ObserverStudy;
 using static DesignPattern.Product;
 using static DesignPattern.SingletonDesign;
 using static DesignPattern.享元模式;
@@ -182,4 +183,29 @@ environmentContext.Handle();
 environmentContext.Handle();
 environmentContext.Handle();
 
+// ObserverStudy
+//WeatherDataPublisher publisher = new WeatherDataPublisher();
+//CurrentConditionDisplay currentDisplay = new CurrentConditionDisplay();
+//StatisticsConditionDisplay statisticsDisplay = new StatisticsConditionDisplay();
+////订阅当前天气展示板
+//IDisposable currentDisplayUnsubscriber = publisher.Subscribe(currentDisplay);
+////订阅气温统计展示板
+//IDisposable statisticsDisplayUnsubscriber = publisher.Subscribe(statisticsDisplay);
+
+//for (int i = 0; i < 5; i++)
+//{
+//    WeatherData weatherData = new WeatherData();
+//    Console.WriteLine("请输入温度,湿度,压力");
+//    string input = Console.ReadLine();
+//    var array = input.Split(',');
+//    weatherData.temperature = array[0];
+//    weatherData.humility = array[1];
+//    weatherData.pressure = array[2];
+//    Console.WriteLine("");
+//    //将输入的新的天气数据传给天气数据发布器
+//    publisher.ReciveNewData(weatherData);
+//    Console.WriteLine("=============================");
+//}
+
+// 观察者模式
 Console.WriteLine("Hello, World!");

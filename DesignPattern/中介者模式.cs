@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPattern
 {
-    internal class 观察者模式
+    public class 中介者模式
     {
     }
 }
